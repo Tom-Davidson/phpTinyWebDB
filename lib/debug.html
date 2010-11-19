@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<title>SimpleWebDB</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<style type="text/css" media="all">
+label {
+	display: block;
+	float: left;
+	width: 60px;
+	padding-right: 3px;
+	text-align: right;
+}
+		</style>
+	</head>
+	<body>
+		<h1>Debug your SimpleWebDB</h1>
+		<h2>Retreive a value</h2>
+		<form action="./getvalue" method="post" enctype="application/x-www-form-urlencoded">
+		<label>Tag</label><input type="text" name="tag" /><br />
+		<label>&nbsp;</label><input type="submit" value="Get value"><br />
+		</form>
+		<hr />
+		<h2>Store a value</h2>
+		<form action="./storeavalue" method="post" enctype="application/x-www-form-urlencoded">
+		<label>Tag</label><input type="text" name="tag" /><br />
+		<label>Value</label><input type="text" name="value" /><br />
+		<label>&nbsp;</label><input type="submit" value="Store a value"><br />
+		</form>
+		<hr />
+		<h2>Stored values (<?php print count($db); ?>)</h2>
+		<ul>
+<?php
+$tags = $db->getList();
+foreach($tags as $tag){ ?>
+			<li><?php print $tag; ?></li>
+<?php
+} ?>
+		</ul>
+		<pre><?php var_dump($tags); ?></pre>
+	</body>
+</html>
