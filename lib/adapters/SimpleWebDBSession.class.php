@@ -99,6 +99,6 @@ class SimpleWebDBSession implements SimpleWebDBInterface
      */
     function getlist()
     {
-        return $_SESSION['SimpleWebDB']; //array_keys($_SESSION['SimpleWebDB']);
+        return array_keys($_SESSION['SimpleWebDB']);
     }
 }
